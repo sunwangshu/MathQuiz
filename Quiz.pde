@@ -65,37 +65,41 @@ class Quiz {
   }
 
   void display() {
-    background(0);
+    translate(x,y);
+    fill(0);
+    rect(0,0,w,h);
     switch (stage) {
       case 0:
+        
+        
         fill(255);
         noStroke();
-        textSize(0.058 * height);
+        textSize(0.058 * h);
         textAlign(CENTER, CENTER);
-        text("Click to start quiz.", width/2, height/2);
+        text("Click to start quiz.", w/2, h/2);
         break;
         
       case 1:
         fill(255);
         noStroke();
-        textSize(0.058 * height);
+        textSize(0.058 * h);
         textAlign(LEFT, BASELINE);
-        text(score, 0.136*width, 0.14*height);
-        text(String.format("%02d", minutes) + ":" + String.format("%02d", seconds), 0.136*width, 0.23*height);
+        text(score, 0.136*w, 0.14*h);
+        text(String.format("%02d", minutes) + ":" + String.format("%02d", seconds), 0.136*w, 0.23*h);
         
-        textSize(0.08 * height);
-        text(num1 + " + " + num2 + " = ?", 0.35*width, 0.46*height);
+        textSize(0.08 * h);
+        text(num1 + " + " + num2 + " = ?", 0.35*w, 0.46*h);
         if (!entered) {
-          text(answerStr, 0.35*width, 0.59*height);
+          text(answerStr, 0.35*w, 0.59*h);
         } else {
-          text(answerNum, 0.35*width, 0.59*height);
+          text(answerNum, 0.35*w, 0.59*h);
           
-          textSize(0.058 * height);
+          textSize(0.058 * h);
           textAlign(RIGHT, BASELINE);
           if (pass) {
-            text("Correct!", 0.84*width, 0.84*height);
+            text("Correct!", 0.84*w, 0.84*h);
           } else {
-            text("Oops~ Try again?", 0.84*width, 0.84*height);
+            text("Oops~ Try again?", 0.84*w, 0.84*h);
           }
         }
         break;
@@ -103,13 +107,13 @@ class Quiz {
       case 3:
         fill(255);
         noStroke();
-        textSize(0.058 * height);
+        textSize(0.058 * h);
         textAlign(CENTER,CENTER);
-        text("Your Score: " + score, width/2, height/2 - height/10);
-        text("Click to restart.", width/2, height/2 + height/10);
+        text("Your Score: " + score, w/2, h/2 - h/10);
+        text("Click to restart.", w/2, h/2 + h/10);
         break;
     }
-    
+    translate(-x,-y);
   }
 
   void retry() {

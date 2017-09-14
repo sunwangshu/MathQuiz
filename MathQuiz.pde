@@ -9,8 +9,8 @@
 Quiz q;
 
 void setup() {
-  size(600,300);
-  q = new Quiz();
+  size(800,600);
+  q = new Quiz(100,50,400,300);
 }
 
 void draw() {
